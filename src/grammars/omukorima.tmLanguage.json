@@ -1,0 +1,65 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "omukorima",
+  "displayName": "Omukorima",
+  "scopeName": "source.omukorima",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#functions" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        { "name": "comment.line.double-slash.omukorima", "match": "//.*$" },
+        { "name": "comment.block.omukorima", "begin": "/\\*", "end": "\\*/" }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.omukorima",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            { "name": "constant.character.escape.omukorima", "match": "\\\\." }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.omukorima",
+          "match": "\\b(?:0x[0-9A-Fa-f]+|[0-9]+(?:\\.[0-9]+)?)\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.omukorima",
+          "match": "\\b(?:if|else|match|for|while|return)\\b"
+        },
+        {
+          "name": "storage.type.omukorima",
+          "match": "\\b(?:fn|let|type|struct|enum|trait|impl)\\b"
+        },
+        {
+          "name": "constant.language.omukorima",
+          "match": "\\b(?:true|false|nil)\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.omukorima",
+          "match": "(?<=\\bfn\\s)[A-Za-z_][A-Za-z0-9_]*"
+        }
+      ]
+    }
+  }
+}
